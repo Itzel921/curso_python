@@ -107,8 +107,7 @@ def actualizaScore(score:dict, ganador:str):
 
 def despliega_tablero(score:dict):
     """Despliega el score"""
-    print(f''' X | G: {score["X"]["G"]} | P: {score["X"]["P"] } | E: {score["X"]["E"]} 
-               O | G: {score["O"]["G"]} | P: {score["O"]["P"]} | E: {score["O"]["E"]}''')
+    print(f''' X | G: {score["X"]["G"]}  P: {score["X"]["P"] }  E: {score["X"]["E"]}\n O | G: {score["O"]["G"]}  P: {score["O"]["P"]}  E: {score["O"]["E"]}''')
 
 
 if __name__ == '__main__':
