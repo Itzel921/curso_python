@@ -23,7 +23,7 @@ def carga_pantillas(nombre_plantilla:str)->dict:
 
 
 
-def despliega_plantila(diccionario:list, nivel:int):
+def despliega_plantilla(diccionario:list, nivel:int):
     '''Despliega una plantilla del juego'''
     if nivel in diccionario:
         template = diccionario[nivel]
@@ -63,7 +63,8 @@ def adivina_letra(abc:dict, palabra:str, letras_adivinadas:set, turnos:int):
         else:
             palabra_oculta += "_"
     print(f"Tienes {turnos} oportunidades de fallar")
-    print(f"El abecesario es {abc}")
+    abcd = ' '.join(abc.values())
+    print(f"El abecesario es {abcd}")
     print(f"La palabra es {palabra_oculta}")  
         
     letra = input('Ingresa una letra: ')
@@ -76,19 +77,19 @@ def adivina_letra(abc:dict, palabra:str, letras_adivinadas:set, turnos:int):
             if letra in palabra:
                 letras_adivinadas.add(letra)
             else:
-                trunos -= 1
+                turnos -= 1
             
             
               
 if __name__ == '__main__':
     plantillas = carga_pantillas('plantilla')
-    despliega_plantila(plantillas, 5)
+    despliega_plantilla(plantillas, 5)
     lista_oraciones = carga_archivo_texto('./datos/pg15532.txt')
     lista_palabras = obten_palabras(lista_oraciones)
     print(len(lista_palabras))
     p = choice(lista_palabras)
     print(p)
-    abcedario = {letra:letra for letra in string.ascii.lowercase}
+    abcedario = {letra:letra for letra in string.ascii_lowercase}
     adivinadas = set()
     turnos = 5 #Oportunidades de fallar
     adivina_letra(abcedario, p, adivinadas, turnos)
