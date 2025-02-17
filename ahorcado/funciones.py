@@ -52,7 +52,7 @@ def obten_palabras(lista: list)->list:
     return list(set_palabras)        
              
              
-def adivina_letra(abc:dict, palabra:str, letras_adivinadas:set, turnos:int):
+def adivina_letra(abc:dict, palabra:str, letras_adivinadas:set, turnos:int)->int:
     #Adivina una letra de una palabra
     
     palabra_oculta = ""
@@ -78,7 +78,7 @@ def adivina_letra(abc:dict, palabra:str, letras_adivinadas:set, turnos:int):
                 letras_adivinadas.add(letra)
             else:
                 turnos -= 1
-            
+    return turnos
             
               
 if __name__ == '__main__':
@@ -91,9 +91,12 @@ if __name__ == '__main__':
     print(p)
     abcedario = {letra:letra for letra in string.ascii_lowercase}
     adivinadas = set()
-    turnos = 5 #Oportunidades de fallar
-    adivina_letra(abcedario, p, adivinadas, turnos)
-    adivina_letra(abcedario, p, adivinadas, turnos)
-
+    t = 5 #Oportunidades de fallar
+    t = adivina_letra(abcedario, p, adivinadas, t)
+    print(t)
+    t = adivina_letra(abcedario, p, adivinadas, t)
+    print(t)
+    t = adivina_letra(abcedario, p, adivinadas, t)
+    print(t)
  
    
