@@ -10,14 +10,18 @@ def main(archivo_torneo:str):
     #Función principal del juego
     
     if archivo_torneo != "":
-        with open(archivo_torneo, "r") as file:
+        with open(archivo_torneo, "r", encoding='utf8') as file:
             torneo = json.load(file)
     else:
         players_mexico = ['Chicharito', 'Piojo', 'Chucky', 'Tecatito', 'Gullit', 'Rafa', 'Hugo', 'Borgetti', 'Cuau', 'Zague']
         players_espania = ['Casillas', 'Ramos', 'Pique', 'Xavi', 'Iniesta', 'Villa', 'Torres', 'Cesc', 'Busquets', 'Pedrito']
+        players_brasil = ["Neymar", "Coutinho", "Marcelo", "Casemiro", "Alisson", "Firmino", "Jesus", "Thiago", "Arthur", "Militao"]
+        players_argentina = ["Messi", "Aguero", "Di Maria", "Otamendi", "Paredes", "Dybala", "Icardi", "Lo Celso", "Lautaro", "Foyth"]
         
         lista_mexico = [Athlete(x) for x in players_mexico]
         lista_espania = [Athlete(x) for x in players_espania]
+        lista_brasil = [Athlete(x) for x in players_brasil]
+        lista_argentina = [Athlete(x) for x in players_argentina]
         
         soccer = Sport("Soccer", 11, "FIFA")
         mexico = Team("Mexico", soccer, lista_mexico)
@@ -25,7 +29,7 @@ def main(archivo_torneo:str):
         
         juego = Game(mexico, espania)
         torneo = [juego.to_json()]
-        archivo_torneo = "games/torneo.json"
+        archivo_torneo = "torneo.json"
         
         with open(archivo_torneo, "w", encoding='utf8') as file:
             json.dump(torneo, file, ensure_ascii=False, indent=4)
