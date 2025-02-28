@@ -3,6 +3,8 @@ from Sport import Sport
 from Team import Team
 from Game import Game
 import json
+import game_logic as gl
+
  
 def main(archivo_torneo:str):
     """Fucnion pricipal de juego"""
@@ -56,6 +58,13 @@ def main(archivo_torneo:str):
         print(game)
         print("----------------")
         
+        #Calcular el tablero de puntuación 
+        for juego in torneo:
+            print(juego['score'])
+        
+        tablero  = gl .scoring(torneo)
+        gl.display_tablero(tablero)
+                
 if __name__ == "__main__":
     archivo_torneo = ""
     main(archivo_torneo)
