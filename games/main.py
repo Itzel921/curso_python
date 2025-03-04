@@ -56,6 +56,7 @@ def main(archivo_torneo:str):
         game = Game(A, B)
         game.play()
         print(game)
+        juego['score'] = game.score
         print("----------------")
         
         #Calcular el tablero de puntuación 
