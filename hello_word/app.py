@@ -20,7 +20,7 @@ def index():
         
         
 
-@app.route('about')  #Home page o raíz o indice
+@app.route('/about')  #Home page o raíz o indice
 
 def about():
     return'''<html>
