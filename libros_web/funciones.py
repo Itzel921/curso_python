@@ -23,6 +23,12 @@ def buscar_en_diccionario(diccionario, palabra)->list:
             lista.append(libro)
     return lista
 
+def libros_empieza_con(lista:list, letra:str)->list:
+    #Busca libros que empicen con letra
+    
+    return [x for x in lista if x['title'].lower().startswith(letra.lower())]   
+
+
 
 if __name__ == '__main__':
     archivo_csv = "booklist2000.csv"
@@ -35,4 +41,6 @@ if __name__ == '__main__':
     diccionario_autores  = crea_diccionario(lista_libros, 'author')
     resultado = buscar_en_diccionario(diccionario_autores, 'Sandra')
     print(resultado)
-    
+   
+    resultado = libros_empieza_con(lista_libros, 'x')
+    print(f"Libros que empiezan con la letra 'z': {len(resultado)}")
