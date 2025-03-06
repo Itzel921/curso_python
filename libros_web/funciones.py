@@ -8,15 +8,16 @@ def lee_archivo_csv(archivo:str)->list:
         return [x for x in csv.DictReader(file)]
 
 
-def crea_diccionario_titulos(listas:list)->dict:
-    #Crea un diccionario con los titulos como clave y el resto de los datos como valores
+def crea_diccionario(listas:list, llave:str)->dict:
+    #Crea un diccionario un diccionario con la palabra llave como clave y el resto de los datos como valores
     
-    return {x['title']: x for x in listas}
+    return {x[llave].lower(): x for x in listas}
 
 
-def busca_en_titulo(diccionario, palabra)->list:
+def buscar_en_diccionario(diccionario, palabra)->list:
     #Busca palabra en titulo de la lista de diccionarios
     lista = []
+    palabra = palabra.lower()
     for titulo, libro in diccionario.items():
         if palabra in titulo.lower():
             lista.append(libro)
@@ -25,9 +26,13 @@ def busca_en_titulo(diccionario, palabra)->list:
 
 if __name__ == '__main__':
     archivo_csv = "booklist2000.csv"
-    
     lista_libros = lee_archivo_csv(archivo_csv)
-    diccionario_libros = crea_diccionario_titulos(lista_libros)
-    resultado = busca_en_titulo(diccionario_libros, 'flower')
+    
+    diccionario_libros = crea_diccionario(lista_libros, 'title')
+    resultado = buscar_en_diccionario(diccionario_libros, 'flower')
+    print(resultado)
+    
+    diccionario_autores  = crea_diccionario(lista_libros, 'author')
+    resultado = buscar_en_diccionario(diccionario_autores, 'Sandra')
     print(resultado)
     
