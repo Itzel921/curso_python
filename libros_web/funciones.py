@@ -23,10 +23,10 @@ def buscar_en_diccionario(diccionario, palabra)->list:
             lista.append(libro)
     return lista
 
-def libros_empieza_con(lista:list, letra:str)->list:
+def libros_empieza_con_una_letra_en_especifico(lista:list, letra:str)->list:
     #Busca libros que empicen con letra
     
-    return [x for x in lista if x['title'].lower().startswith(letra.lower())]   
+    return [libro for libro in lista if libro['title'].lower().startswith(letra.lower())]   
 
 
 
@@ -42,5 +42,5 @@ if __name__ == '__main__':
     resultado = buscar_en_diccionario(diccionario_autores, 'Sandra')
     print(resultado)
    
-    resultado = libros_empieza_con(lista_libros, 'x')
-    print(f"Libros que empiezan con la letra 'z': {len(resultado)}")
+    resultado = libros_empieza_con_una_letra_en_especifico(lista_libros, 'x')
+    print(f"Libros que empiezan con la letra 'x': {len(resultado)}")

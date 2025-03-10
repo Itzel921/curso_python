@@ -1,0 +1,49 @@
+<!DOCTYPE html> <!--Estamos especificando que es un documento HTML-->
+<html lang="es"> <!--Espeficica que será un archivo en español-->
+    <head>
+        <meta charset = "UTF-8"> <!--Acepta caracteres con acentos-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Libros web - Libro</title>
+    </head>
+    <body>
+        
+        <table>
+            <tr>
+                <td><h3>ID</h3></td>
+                <td>{{ libro.id }}</td>
+            </tr>
+
+            <tr>
+                <td><h3>Portada</h3></td>
+                <td><img src = "{{libro.image_url}}" width = "150"></td>
+            </tr>
+
+            <tr>
+                <td><h3>Título</h3></td>
+                <td>{{ libro.titulo }}</td>
+            </tr>
+
+            <tr>
+                <td><h3>Catrgoría</h3></td>
+                <td>{{ libro.category }}</td>
+            </tr>
+
+            <tr>
+                <td><h3>Id categoria</h3></td>
+                <td>{{ libro.category_id }}</td>
+       
+            </tr>
+        </table>
+
+
+        <br><br><br>
+        <h3>Menú</h3>
+
+         <ul>
+            <li><a href = "/">Inicio</a></li>
+            <li><a href = "/autor">Busqueda por autor </a></li>
+            <li><a href = "/letra">Desplegar por letra</a></li>
+        </ul>
+
+    </body>
+</html>

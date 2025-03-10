@@ -18,7 +18,7 @@
         <p>Resultados:</p>
         <ul>
             {% for libro in lista_libros %}  <!--Invocamos a Python-->
-                <li>{{ libro.titulo }} - {{ libro.autor }}</li>
+                <li><a href = "/libro/{{libro.id}}">{{ libro.title}}</a> - {{ libro.author }}</li>
             {% endfor %}    
         </ul>
 
