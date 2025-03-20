@@ -1,0 +1,39 @@
+<!DOCTYPE html> <!--Estamos especificando que es un documento HTML-->
+<html lang="es"> <!--Espeficica que será un archivo en español-->
+    <head>
+        <meta charset = "UTF-8"> <!--Acepta caracteres con acentos-->
+        <title>Libros web -- Busqueda por título</title>
+    </head>
+
+    <body>
+        <div>
+            <h2>Busqueda por autor</h2>
+
+        <form action = "/author" method = "post">
+
+            <label for = "author"> Autor: </label>
+            <input type = "text" id = "author" name = "author">
+            <input type = "submit" value = "Buscar">
+
+        </form>
+
+        <p>Resultados:</p>
+        <ul>
+            {% for author in lista_libros %}  <!--Invocamos a Python-->
+                <li><a href = "/author/{{libro.id}}"> {{ libro.author }} - {{ libro.title}}</a> </li>
+            {% endfor %}    
+        </ul>
+        
+        </div>
+
+
+
+        <div>
+            <ul>
+                <li><a href = "/titulo">Busqueda por títuo </a></li>
+                <li><a href = "/autor">Busqueda por autor </a></li>
+                <li><a href = "/letra">Desplegar por letra</a></li>
+            </ul>
+        </div>
+    </body>
+</html>
