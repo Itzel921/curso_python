@@ -133,6 +133,16 @@ class SistemaCine:
         ids_peliculas = [relacion.id_pelicula for relacion in self.relaciones.values() if relacion.id_estrella == id_estrella]
         return [self.peliculas[id_pelicula] for id_pelicula in ids_peliculas] 
 
+
+
+def obtener_actores_por_pelicula(self, id_pelicula):
+    ''' Método para obtener los actores de una película'''
+    ids_actores = [relacion.id_estrella for relacion in self.relaciones.values() if relacion.id_pelicula == id_pelicula]
+    return [self.actores[id_estrella] for id_estrella in ids_actores]
+
+
+
+
 if __name__ == '__main__':
     sistema = SistemaCine()
     sistema.cargar_csv('datos/movies_db - actores.csv', Actor)
@@ -143,4 +153,11 @@ if __name__ == '__main__':
     for pelicula in lista_peliculas:
        print(f"{pelicula.id_pelicula}: {pelicula.titulo_pelicua} ({pelicula.fecha_lanzamiento.year})")
  
+ 
+    print("------------------------------------")
+    u = sistema.usuarios['Almejandra']
+    print(u.username)
+    print(u.nombre_completo)
+    print(u.password)
+    print(f'password: {u.hash_password(u.password)}')
     print("Listo!")
